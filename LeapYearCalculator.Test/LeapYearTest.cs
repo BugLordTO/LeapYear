@@ -6,36 +6,18 @@ namespace LeapYearCalculator.Test
 {
     public class LeapYearTest
     {
-        [Fact]
-        public void InputYear1ShouldNotBeLeapYear()
+        [Theory]
+        [InlineData(1,false)]
+        [InlineData(2017, false)]
+        [InlineData(2019, false)]
+        [InlineData(4, true)]
+        [InlineData(100, false)]
+        [InlineData(1600, true)]
+        public void LeapYearCalculatorTest(int n,bool expected)
         {
             var sut = new LeapYear();
-            var actual = sut.Calculate(1);
-            actual.Should().BeFalse();
-        }
-
-        [Fact]
-        public void InputYear4ShouldBeLeapYear()
-        {
-            var sut = new LeapYear();
-            var actual = sut.Calculate(4);
-            actual.Should().BeTrue();
-        }
-
-        [Fact]
-        public void InputYear100ShouldNotBeLeapYear()
-        {
-            var sut = new LeapYear();
-            var actual = sut.Calculate(100);
-            actual.Should().BeFalse();
-        }
-
-        [Fact]
-        public void InputYear1600ShouldNotBeLeapYear()
-        {
-            var sut = new LeapYear();
-            var actual = sut.Calculate(1600);
-            actual.Should().BeTrue();
+            var actual = sut.Calculate(n);
+            actual.Should().Be(expected);
         }
     }
 }

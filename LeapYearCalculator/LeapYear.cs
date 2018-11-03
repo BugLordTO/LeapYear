@@ -21,9 +21,12 @@ namespace LeapYearCalculator
 
         public bool Calculate(int year)
         {
-            if (DivisibleBy100(year) && !DivisibleBy400(year)) return false;
-            else if (DivisibleBy400(year) || DivisibleBy4(year)) return true;
-            return false;
+            if (DivisibleBy100(year) && !DivisibleBy400(year))
+                return false;
+            else if (DivisibleBy4(year))
+                return true;
+            else
+                return false;
         }
     }
 }

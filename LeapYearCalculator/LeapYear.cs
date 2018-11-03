@@ -6,7 +6,8 @@ namespace LeapYearCalculator
     {
         public bool Calculate(int year)
         {
-            throw new NotImplementedException();
+            if (year % 400 == 0) return true;
+            return false;
         }
     }
 }

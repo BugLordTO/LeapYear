@@ -26,8 +26,16 @@ namespace LeapYearCalculator.Test
         public void InputYear100ShouldNotBeLeapYear()
         {
             var sut = new LeapYear();
-            var actual = sut.Calculate(4);
+            var actual = sut.Calculate(100);
             actual.Should().BeFalse();
+        }
+
+        [Fact]
+        public void InputYear1600ShouldNotBeLeapYear()
+        {
+            var sut = new LeapYear();
+            var actual = sut.Calculate(1600);
+            actual.Should().BeTrue();
         }
     }
 }
